@@ -15,7 +15,7 @@
 
 body {
     background-color: var(--secondary-color);
-    font-family: sans-serif;
+    font-family: 'Trebuchet MS', sans-serif;
     margin: 0;
 }
 
@@ -74,7 +74,7 @@ main {
 }
 
 .movie {
-    width: 50%;
+    width: 700px;
     margin: 1rem auto 2rem auto;
     background-color: var(--primary-color);
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
@@ -92,13 +92,13 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.5rem 1rem 1rem;
+    padding: 0 1rem;
     letter-spacing: 1px;
 }
 
 .movie-info span {
     background-color: var(--secondary-color);
-    padding: 0.25rem 0.25rem;
+    padding: 0 0.25rem;
     border-radius: 3px;
     font-weight: bold;
 }
@@ -120,8 +120,14 @@ main {
     display: grid;
     align-items: center;
     justify-content: space-between;
-    padding: 0.5rem 1rem 1rem;
+    padding: 0 1rem;
     letter-spacing: 1px;
+}
+
+.movie-info-secondary .secondary-info {
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: large;
 }
 
 .details {

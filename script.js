@@ -70,7 +70,7 @@ function getReviews(id) {
         let content = ``;
         reviewsList.forEach(review => {
             content += `
-            <span class="reviewer">${review.author}:</span><br>
+            <b>User </b><span class="reviewer">${review.author}:</span><br>
                 <span class="review">${review.content}</span><br>
             `
         });
@@ -115,16 +115,23 @@ function displayMovies(movies, searchText) {
         const { id, title, backdrop_path, genres, release_date, vote_average, overview } = movie;
         const moviesElement = document.createElement('div');
         moviesElement.classList.add('movie');
+        let image_path = '';
+        if (backdrop_path) {
+            image_path = IMAGE_BASE_URL + backdrop_path;
+        }
+        else {
+            image_path = '/no_image_available.png';
+        }
         moviesElement.innerHTML = `
-            <img src="${IMAGE_BASE_URL + backdrop_path}" alt="${title}" />
+            <img src="${image_path}" alt="${title}" />
             <div class='movie-info'>
             <h2>${title}</h2>
             <span class='${getClassesByRating(vote_average)}'>&starf; ${fixDecimals(vote_average, 1)}</span>
             </div>    
             <div class="movie-info-secondary">
-                <h4>Release year:</h4> ${getYearFromDate(release_date)}   
-                <h4>Genres:</h4> ${genres}
-                <h4>Overview:</h4> ${overview}
+                <span class="secondary-info">Release year:</span> ${getYearFromDate(release_date)}   
+                <span class="secondary-info">Genres:</span> ${genres}
+                <span class="secondary-info">Overview:</span> ${overview}
             </div>
             <button class="info-button" id="${id}" onclick="animation(id)">Show more info &#128899</button>
             <div class='details' id='details-${id}'>
